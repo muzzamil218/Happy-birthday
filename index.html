@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Zunii! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <!-- Balloons -->
+    <div class="balloon" data-color="#FF6B6B" data-left="10%" data-delay="0s"></div>
+    <div class="balloon" data-color="#4ECDC4" data-left="25%" data-delay="0.5s"></div>
+    <div class="balloon" data-color="#FFE66D" data-left="40%" data-delay="1s"></div>
+    <div class="balloon" data-color="#95E1D3" data-left="55%" data-delay="1.5s"></div>
+    <div class="balloon" data-color="#F38181" data-left="70%" data-delay="2s"></div>
+    <div class="balloon" data-color="#AA96DA" data-left="85%" data-delay="2.5s"></div>
+    
+    <!-- SURPRISE PAGE -->
+    <div id="surprisePage" class="page-section">
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Stars Background -->
+            <div class="stars-container">
+                <span class="star star-1"></span>
+                <span class="star star-2"></span>
+                <span class="star star-3"></span>
+                <span class="star star-4"></span>
+                <span class="star star-5"></span>
+                <span class="star star-6"></span>
+            </div>
+            
+            <!-- Surprise Title -->
+            <div class="text-wrapper">
+                <h1 class="birthday-text">
+                    <span class="letter">S</span>
+                    <span class="letter">u</span>
+                    <span class="letter">r</span>
+                    <span class="letter">p</span>
+                    <span class="letter">r</span>
+                    <span class="letter">i</span>
+                    <span class="letter">s</span>
+                    <span class="letter">e</span>
+                </h1>
+            </div>
+            
+            <!-- Special Message -->
+            <div class="zunii-container">
+                <h2 class="zunii-text">
+                    <span class="z-letter">🎁</span>
+                    <span class="z-letter">F</span>
+                    <span class="z-letter">o</span>
+                    <span class="z-letter">r</span>
+                    <span class="z-letter">Y</span>
+                    <span class="z-letter">o</span>
+                    <span class="z-letter">u</span>
+                </h2>
+            </div>
+            
+            <!-- Gift Box -->
+            <div class="cake-container">
+                <div class="gift-box">
+                    <div class="gift-ribbon"></div>
+                    <div class="gift-bow"></div>
+                </div>
+            </div>
+            
+            <!-- Message -->
+            <p class="message">🌟 You're amazing! Enjoy your special day! 🌟</p>
+            
+            <!-- Surprise Button -->
+            <button class="surprise-button" onclick="showBirthdayPage()">Surprise Zunii</button>
+        </div>
+    </div>
+    
+    <!-- BIRTHDAY PAGE -->
+    <div id="birthdayPage" class="page-section hidden">
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Stars Background -->
+            <div class="stars-container">
+                <span class="star star-1"></span>
+                <span class="star star-2"></span>
+                <span class="star star-3"></span>
+                <span class="star star-4"></span>
+                <span class="star star-5"></span>
+                <span class="star star-6"></span>
+            </div>
+            
+            <!-- Happy Birthday Text -->
+            <div class="text-wrapper">
+                <h1 class="birthday-text">
+                    <span class="letter">H</span>
+                    <span class="letter">a</span>
+                    <span class="letter">p</span>
+                    <span class="letter">p</span>
+                    <span class="letter">y</span>
+                    <span class="letter space"> </span>
+                    <span class="letter">B</span>
+                    <span class="letter">i</span>
+                    <span class="letter">r</span>
+                    <span class="letter">t</span>
+                    <span class="letter">h</span>
+                    <span class="letter">d</span>
+                    <span class="letter">a</span>
+                    <span class="letter">y</span>
+                </h1>
+            </div>
+            
+            <!-- Zunii Name with Special Animation -->
+            <div class="zunii-container">
+                <h2 class="zunii-text">
+                    <span class="z-letter">Z</span>
+                    <span class="z-letter">u</span>
+                    <span class="z-letter">n</span>
+                    <span class="z-letter">i</span>
+                    <span class="z-letter">i</span>
+                </h2>
+            </div>
+            
+            <!-- Cake -->
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="cake-body"></div>
+                </div>
+            </div>
+            
+            <!-- Message -->
+            <p class="message">🎊 Wishing you a day filled with joy and celebration! 🎊</p>
+            
+            <!-- Back Button -->
+            <button class="back-button" onclick="showSurprisePage()">Back to Surprise</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .star-1 { left: 10%; top: 20%; }
+        .star-2 { left: 20%; top: 40%; }
+        .star-3 { left: 70%; top: 30%; }
+        .star-4 { left: 80%; top: 50%; }
+        .star-5 { left: 15%; top: 70%; }
+        .star-6 { left: 85%; top: 20%; }
+    </style>
+    <script>
+        // Apply balloon styles from data attributes
+        document.querySelectorAll('.balloon').forEach(balloon => {
+            const color = balloon.getAttribute('data-color');
+            const left = balloon.getAttribute('data-left');
+            const delay = balloon.getAttribute('data-delay');
+            
+            balloon.style.setProperty('--color', color);
+            balloon.style.setProperty('left', left);
+            balloon.style.setProperty('animation-delay', delay);
+        });
+        
+        function showBirthdayPage() {
+            document.getElementById('surprisePage').classList.add('hidden');
+            document.getElementById('birthdayPage').classList.remove('hidden');
+        }
+        
+        function showSurprisePage() {
+            document.getElementById('surprisePage').classList.remove('hidden');
+            document.getElementById('birthdayPage').classList.add('hidden');
+        }
+    </script>
+      
+    </style>
+    <script>
+        // Apply balloon styles from data attributes
+        document.querySelectorAll('.balloon').forEach(balloon => {
+            const color = balloon.getAttribute('data-color');
+            const left = balloon.getAttribute('data-left');
+            const delay = balloon.getAttribute('data-delay');
+            
+            balloon.style.setProperty('--color', color);
+            balloon.style.setProperty('left', left);
+            balloon.style.setProperty('animation-delay', delay);
+        });
+        
+        function showBirthdayPage() {
+            document.getElementById('surprisePage').classList.add('hidden');
+            document.getElementById('birthdayPage').classList.remove('hidden');
+        }
+        
+        function showSurprisePage() {
+            document.getElementById('surprisePage').classList.remove('hidden');
+            document.getElementById('birthdayPage').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
